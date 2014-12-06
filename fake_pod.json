@@ -1,0 +1,19 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1beta1",
+  "id": "fake",
+  "desiredState": {
+    "manifest": {
+      "version": "v1beta1",
+      "id": "fake",
+      "containers": [{
+        "name": "fake",
+        "command": "foo",
+        "image": "l3n41c/fake_pod"
+      }]
+    }
+  },
+  "labels": {
+    "name": "fake"
+  }
+}
