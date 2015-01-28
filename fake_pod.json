@@ -1,15 +1,28 @@
 {
   "kind": "Pod",
-  "apiVersion": "v1beta1",
+  "apiVersion": "v1beta2",
   "id": "fake",
   "desiredState": {
     "manifest": {
-      "version": "v1beta1",
+      "version": "v1beta3",
       "id": "fake",
+      "volumes": [{
+        "name": "args",
+        "source": {
+          "hostDir": {
+            "path": "/tmp/fake_pod"
+          }
+        }
+      }],
       "containers": [{
         "name": "fake",
-        "command": "foo",
-        "image": "l3n41c/fake_pod"
+        "command": ["foo"],
+        "image": "l3n41c/fake_pod",
+        "volumeMounts": [{
+          "name": "args",
+          "mountPath": "/tmp",
+          "readOnly": false
+        }]
       }]
     }
   },
